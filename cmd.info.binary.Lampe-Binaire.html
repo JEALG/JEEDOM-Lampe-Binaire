@@ -27,9 +27,9 @@
 			var srcImgSize 		= 'height='+srcImgHeight+'px width='+srcImgWidth+'px';
 		// Paramétrage des images
 			var srcImgURL 		= 'plugins/widget/core/template/dashboard/cmd.info.binary.Lampe-Binaire/';
-            var srcImgOn 		= srcImgURL + srcImglogoON +'.'+ srcImglogoON_T;     // Pour Valeur = 1
-            var srcImgOff 		= srcImgURL + srcImglogoOFF +'.'+ srcImglogoOFF_T;  //  Pour valeur = 0
-            var srcImgError 	= srcImgURL + srcImglogoER +'.'+ srcImglogoER_T;    //  Pour valeur = Erreur
+            var srcImgOn 		= srcImgURL +srcImglogo+"-ON"+"."+srcImglogo_T;     // Pour Valeur = 1
+            var srcImgOff 		= srcImgURL +srcImglogo+"-OFF"+"."+srcImglogo_T;    //  Pour valeur = 0
+            var srcImgError 	= srcImgURL +srcImglogoER+"."+srcImglogoER_T;      //  Pour valeur = Erreur
 		// Affichage durée changement dernier etat
 			var srcImglogoTime = '#logoTime#';
 			var srcImgPath;
@@ -41,15 +41,7 @@
         }else {
             $('.cmd[data-cmd_id=#id#] .iconCmd#id#').empty().append('<img src="'+srcImgError+'" '+srcImgSize+'>');
         }
-                
-        if (parseInt(_options.display_value) == 1) {
-			srcImgPath = srcImgURL +srcImglogo+"-ON"+"."+srcImglogo_T;
-		} else if (parseInt(_options.display_value) == 0) {
-			srcImgPath = srcImgURL +srcImglogo+"-OFF"+"."+srcImglogo_T;
-		} else {
-			srcImgPath = srcImgURL +srcImglogoER+"."+srcImglogoER_T;
-		}
-	
+
 		//Affichage image
 			$('.iconCmd#uid#').empty().append('<img src="'+srcImgPath+'" '+srcImgSize+'>'); 
       
