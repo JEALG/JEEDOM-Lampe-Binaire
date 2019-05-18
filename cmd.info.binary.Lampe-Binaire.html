@@ -9,10 +9,9 @@
         <div class="content-sm ">
             <span class="iconCmd#id#"></span>
     </div>
-    <div class="value">
-        <span class="timeCmd#id# timeCmd label label-default value"></span>
+    <div style="font-weight: bold;font-size : 10px;">
+        <span class="timeCmd#id#" ></span>
     </div>
-</div>
 <script> 
 	jeedom.cmd.update['#id#'] = function(_options){
 		// Paramètrage du logo
@@ -47,16 +46,17 @@
 			if (srcImglogoTime == "duree") {
 				jeedom.cmd.displayDuration(_options.valueDate, $('.cmd[data-cmd_id=#id#] .timeCmd#id#'));
 			} else if (srcImglogoTime == "date") {
-				var srcdate = new Date(_options.valueDate);
-				var srcformat = $.datepicker.formatDate('D dd/mm', srcdate);
-				var srctime = "à "+srcdate.getHours()+":"+(srcdate.getMinutes()<10?'0':'')+srcdate.getMinutes();
+				var srcdate     = new Date(_options.valueDate);
+				var srcformat   = $.datepicker.formatDate('D dd/mm', srcdate);
+				var srctime     = "à "+srcdate.getHours()+":"+(srcdate.getMinutes()<10?'0':'')+srcdate.getMinutes();
 				$('.cmd[data-cmd_id=#id#] .timeCmd#id#').empty().html(srcformat+'<br>'+srctime);
 			} else if (srcImglogoTime == "heure") {
-				var srcdate = new Date(_options.valueDate);
-				var srctime = "à "+srcdate.getHours()+":"+(srcdate.getMinutes()<10?'0':'')+srcdate.getMinutes()+":"+(srcdate.getSeconds()<10?'0':'')+srcdate.getSeconds()+"";
+				var srcdate     = new Date(_options.valueDate);
+				var srctime     = "à "+srcdate.getHours()+":"+(srcdate.getMinutes()<10?'0':'')+srcdate.getMinutes()+":"+(srcdate.getSeconds()<10?'0':'')+srcdate.getSeconds()+"";
 				$('.cmd[data-cmd_id=#id#] .timeCmd#id#').empty().html(srctime);
 			};
 		$('.cmd[data-cmd_id=#id#]').attr('title','Valeur du '+_options.valueDate+', collectée le '+_options.collectDate);
 	} 
 	jeedom.cmd.update['#id#']({display_value:'#state#',valueDate:'#valueDate#',collectDate:'#collectDate#',alertLevel:'#alertLevel#'});
 </script>
+</div>
