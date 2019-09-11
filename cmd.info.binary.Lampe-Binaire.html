@@ -1,7 +1,7 @@
 <div style="padding:0;width:90px;min-height:62px;" class="cmd #history# tooltips cursor cmd-widget" data-type="info" data-subtype="binary" data-cmd_id="#id#" data-cmd_uid="#uid#" data-eqLogic_id="#eqLogic_id#" data-eqLogic_id="#eqLogic_id#" title="#collectDate#">
     <!-- Info Widget
         Basé sur les widget de 	: 
-        Mise à jour 			: JAG 20190518 : Nettoyage du code
+        Mise à jour 			: JAG 20190907 : Normalisation nom images => Merci à mich0111
 	-->
     <div class="title #hide_name#">
         <div class="cmdName" style="#hideCmdName#">#name_display#</div>
@@ -15,10 +15,10 @@
 <script> 
 	jeedom.cmd.update['#id#'] = function(_options){
 		// Paramètrage du logo
-			var srcImglogo		= ('#logo#'!='#'+'logo#') ? "#logo#" : "Lampe";
+			var srcImglogo		= ('#logo#'!='#'+'logo#') ? "#logo#" : "la_ampoule";
 			var srcImglogo_T 	= ('#logo_type#'!='#'+'logo_type#') ? "#logo_type#": "png";
 		// Paramètrage du logo pour Erreur
-			var srcImglogoER	= ('#logoER#'!='#'+'logoER#') ? "#logoER#": "oups";
+			var srcImglogoER	= ('#logoER#'!='#'+'logoER#') ? "#logoER#": "er_oups1";
 			var srcImglogoER_T 	= ('#logoER_type#'!='#'+'logoER_type#') ? "#logoER_type#": "png";
 		// Paramètre "sizeh" & "sizew"
 			var srcImgHeight	= is_numeric('#sizeh#') ? parseFloat('#sizeh#'):80;
@@ -32,9 +32,9 @@
 			var srcImgPath;
         
         if (_options.display_value == '1') {
-            $('.cmd[data-cmd_id=#id#] .iconCmd#id#').empty().append('<img src="'+srcImgURL +srcImglogo +'-ON.'+ srcImglogo_T+'" '+srcImgSize+'>');
+            $('.cmd[data-cmd_id=#id#] .iconCmd#id#').empty().append('<img src="'+srcImgURL +srcImglogo +'_on.'+ srcImglogo_T+'" '+srcImgSize+'>');
         }else if (_options.display_value == '0') {
-            $('.cmd[data-cmd_id=#id#] .iconCmd#id#').empty().append('<img src="'+srcImgURL +srcImglogo +'-OFF.'+ srcImglogo_T+'" '+srcImgSize+'>');
+            $('.cmd[data-cmd_id=#id#] .iconCmd#id#').empty().append('<img src="'+srcImgURL +srcImglogo +'_off.'+ srcImglogo_T+'" '+srcImgSize+'>');
         }else {
             $('.cmd[data-cmd_id=#id#] .iconCmd#id#').empty().append('<img src="'+srcImgError+'" '+srcImgSize+'>');
         }
